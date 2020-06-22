@@ -5,7 +5,7 @@ from vk_api.keyboard import VkKeyboard, VkKeyboardColor
 from vk_api.utils import get_random_id
 
 from modules.VkBot import VkBot
-from modules.emphasis import WordImage
+# from modules.emphasis import WordImage
 import random
 import requests
 import json
@@ -41,35 +41,11 @@ def upload_photo(upload, photo) -> None:
 def send_image(command, user_id):
     if command.upper() == 'УДАРЕНИЕ' or command == '1':
 
-        # with open('./data/emphasises.json', 'r') as file:
-        #     words = json.load(file)
-
-        # rand_int = random.randint(0, len(words)-1)
-        # owner_id, photo_id = upload_photo(VkUpload(vk.get_api()), open('./res/emphasises/img_{}.png'.format(rand_int), 'rb'))
-        # attachment = "photo{}_{}".format(owner_id, photo_id)
-        # vk.method("messages.send", {"peer_id": user_id, "attachment": attachment, "random_id": get_random_id(), 'keyboard': keyboard.get_keyboard()})
-
         with open('./data/emphasises.json', 'r') as file:
             words = json.load(file)
-        
-        with open('./data/stress_vowels.json', 'r') as file:
-            vowels = json.load(file)
 
-
-        rand_int = random.randint(0, len(words) - 1)
-
-        img = WordImage(
-            img='./res/BG.png',
-            font='./res/arial.ttf',
-            text=words[rand_int],
-            fill_normal=(255, 255, 255),
-            vowels=vowels,
-            index=None
-            )
-
-        temp_img = WordImage.return_image(img)
-
-        owner_id, photo_id = upload_photo(VkUpload(vk.get_api()), temp_img)
+        rand_int = random.randint(0, len(words)-1)
+        owner_id, photo_id = upload_photo(VkUpload(vk.get_api()), open('./res/emphasises/img_{}.png'.format(rand_int), 'rb'))
         attachment = "photo{}_{}".format(owner_id, photo_id)
         vk.method("messages.send", {"peer_id": user_id, "attachment": attachment, "random_id": get_random_id(), 'keyboard': keyboard.get_keyboard()})
 
