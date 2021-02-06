@@ -12,7 +12,7 @@ import json
 
 
 
-VK_TOKEN: str = "baca3eeb386a06da54e6a9b72d31c7a60112c35080e9d21cd02685b9ba719418acc9e86f0b40f165952f7"
+VK_TOKEN: str = ""
 
 # Авторизация
 vk = vk_api.VkApi(token=VK_TOKEN)
