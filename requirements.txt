@@ -1,4 +1,4 @@
 # requirements.txt
-Pillow==7.1.2
+Pillow==8.2.0
 vk-api==11.8.0
 bs4==4.9.1
